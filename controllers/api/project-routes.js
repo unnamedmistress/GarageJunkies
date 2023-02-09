@@ -1,12 +1,14 @@
 const router = require('express').Router();
-const { Project } = require('../../models');
+const { Project, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.get ('/', async (req,res) =>{
     try {
         const items = await Project.findAll({
             //Not sure what to include here
-          include: [Product]
+          include:[{
+            model:User
+        }]
         })
         res.status(200).json(items)
         console.log(items)
