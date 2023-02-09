@@ -1,3 +1,4 @@
+
 // Submit event listener for the login form
 const login = document.querySelector('form');
 form.addEventListener('submit', (e) => {

@@ -1,3 +1,4 @@
+
 // Logout component
 const logoutBtn = document.querySelector('#logout-button');
 
