@@ -3,12 +3,7 @@ const { User, Project } = require('../../models');
 
 router.get ('/', async (req,res) =>{
     try {
-        const users = await User.findAll({
-            //Not sure what to include here
-          include:[{
-            model:Project
-        }]
-        })
+        const users = await User.findAll()
         res.status(200).json(users)
         console.log(users)
       }
@@ -16,8 +11,6 @@ router.get ('/', async (req,res) =>{
         res.status(500).json(err)
         console.log(err)
       }
-
-
 
 })
 
