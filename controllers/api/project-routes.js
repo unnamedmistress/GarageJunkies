@@ -4,12 +4,7 @@ const withAuth = require('../../utils/auth');
 
 router.get ('/', async (req,res) =>{
     try {
-        const items = await Project.findAll({
-            //Not sure what to include here
-          include:[{
-            model:User
-        }]
-        })
+        const items = await Project.findAll()
         res.status(200).json(items)
         console.log(items)
       }
