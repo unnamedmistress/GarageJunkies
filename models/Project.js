@@ -2,7 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 class Project extends Model {}
-//This will need to be changed for our listing models
+//we will use this model for listings
 Project.init(
   {
     id: {
@@ -11,21 +11,19 @@ Project.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    item_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     description: {
       type: DataTypes.STRING,
     },
-    date_created: {
-      type: DataTypes.DATE,
+    price:{
+      type: DataTypes.DECIMAL,
       allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
-    needed_funding: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
+      validate: {
+        isDecimal: true
+      }
     },
     user_id: {
       type: DataTypes.INTEGER,
