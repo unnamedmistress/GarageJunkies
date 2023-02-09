@@ -4,8 +4,6 @@
 // Form IDs to match the login.handlebars are name-signup, email-signup, password-signup
 
 // Listen for the DOM to finish loading
-const bcrypt = require('bcrypt');
-
 document.addEventListener('DOMContentLoaded', function() {
     // Get a reference to the form element
     const form = document.querySelector('form');
