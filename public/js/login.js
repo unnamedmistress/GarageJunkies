@@ -1,37 +1,44 @@
-
 // Submit event listener for the login form
 const login = document.querySelector('form');
-form.addEventListener('submit', (e) => {
+login.addEventListener('submit', async (e) => {
   e.preventDefault();
 
-  // Get the username and password values from user input
-  const username = document.querySelector('#username').value;
-  const password = document.querySelector('#password').value;
+  // Get the email and password values from user input
+  const email = document.querySelector('#email-login').value;
+  const password = document.querySelector('#password-login').value;
 
   // Validate the username and password values
-  if (!username || !password) {
-    alert('Username and password are required');
-    return;
-  }
+  // if (!email || !password) {
+  //   alert('Email and password are required');
+  //   return;
+  // }
 
-  // Send a POST request to the back-end API with the username and password
-  fetch('/login', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      username: username,
-      password: password,
-    })
+  // Send a POST request to the back end API with email and password 
+  if (email && password) {
+    try {
+      const res = await fetch('/api/users/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          email,
+          password
+        })
+      });
       
-
-  })
-    .then(res => res.json())
-    .then(data => {
+      // Throw error if problem with HTTP req
+      if (!res.ok) {
+        throw new Error(res.statusText);
+      }
+  
+      const data = await res.json();
       console.log('Success! Logged in', data);
-    })
-    .catch(error => {
+      // If response is successful, redirect user to profile page
+      window.location.href = '/profile';
+      // Catch any errors during fetch
+    } catch (error) {
       console.error('Error: Unable to login:', error);
-    });
+    }
+  } 
 });
