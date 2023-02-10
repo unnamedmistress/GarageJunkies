@@ -72,4 +72,23 @@ router.post('/logout', (req, res) => {
   }
 });
 
+router.delete('/delete', (req, res) => {
+  try {
+    console.log(req.body)
+    if (req.session.logged_in) {
+      req.session.destroy()
+    }
+    const user = User.destroy({
+      where:{
+        id:req.body.id
+      }
+    });
+    // Send a message to the user saying that their account was deleted
+    res.status(200).json('success');
+  } catch (err) {
+    // If there's an error, send a status code of 500 (Internal Server Error)
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
