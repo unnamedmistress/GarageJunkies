@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>User Account</title>
+  </head>
+  <body>
+    <h1>User Account</h1>
+<!-- This form is used to update the user's account information -->
+<form action="/useraccount" method="post">
+  <!-- This hidden input tells the back-end that this is a "PUT" request (updating information) -->
+  <input type="hidden" name="_method" value="put">
+  <!-- This hidden input sends the user's id to the back-end -->
+  <input type="hidden" name="id" value="{{user.id}}">
+  
+  <!-- This div contains the name input field -->
+  <div>
+    <label for="name">Name:</label>
+    <!-- This input field displays the user's current name and allows them to change it -->
+    <input type="text" name="name" value="{{user.name}}">
+  </div>
+  
+  <!-- This div contains the email input field -->
+  <div>
+    <label for="email">Email:</label>
+    <!-- This input field displays the user's current email and allows them to change it -->
+    <input type="email" name="email" value="{{user.email}}">
+  </div>
+  
+  <!-- This button submits the form and updates the user's account information in the back-end -->
+  <button type="submit">Update</button>
+</form>
+
+<!-- This form is used to delete the user's account -->
+<form action="/useraccount" method="post">
+  <!-- This hidden input tells the back-end that this is a "DELETE" request (deleting information) -->
+  <input type="hidden" name="_method" value="delete">
+  <!-- This hidden input sends the user's id to the back-end -->
+  <input type="hidden" name="id" value="{{user.id}}">
+  
+  <!-- This button submits the form and deletes the user's account information in the back-end -->
+  <button type="submit">Delete Account</button>
+</form>
+
+<!-- This heading is for the user's sales -->
+<h3>Sales</h3>
+
+<!-- This unordered list displays the user's sales -->
+<ul>
+  <!-- This loop goes through each sale and displays its name -->
+  {{#each user.sales as |sale|}}
+    <li>{{sale.name}}</li>
+  {{/each}}
+</ul>
+
+
+  </body>
+</html>
