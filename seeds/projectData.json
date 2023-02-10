@@ -2,16 +2,19 @@
   {
     "item_name": "Coffee Cup",
     "description": "This stained coffee cup is perfect for your collection.",
-    "price": 15.00
+    "price": 15.00,
+    "photo_url": "https://example.com/coffee_cup.jpg"
   },
   {
     "item_name": "Shark Watch",
     "description": "This trendy shark watch is great for keeping time while you surf.",
-    "price": 45.00
+    "price": 45.00,
+    "photo_url": "https://example.com/shark_watch.jpg"
   },
   {
     "item_name": "pen",
     "description": "Best ball point pen around.",
-    "price": 2.00
+    "price": 2.00,
+    "photo_url": "https://example.com/shark_watch.jpg"
   }
 ]
