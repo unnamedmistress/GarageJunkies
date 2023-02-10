@@ -11,26 +11,30 @@ function initMap() {
   return map;
 };
 
-// Fetch to backend to get listing data
-async function getListings(zipCode, item) {
-  // Get values from user search input
-  let zipCode = document.querySelector('#zipcode').value;
-  let item = document.querySelector('#item').value;
-  const response = await fetch(`/api/listings?${zipCode}&${item}`);
-  const listings = await response.json();
-  return listings;
-};
+ // Call the map
+ initMap();
 
-// Place markers on map for each listing
-async function displayListingsOnMap(zipCode, item) {
-  const listings = await getListings(zipCode, item);
 
-  // Create marker for each listing
-  listings.forEach(listing => {
-    const marker = new google.maps.Marker({
-      position: { lat: listing.latitude, lng: listing.longitude },
-      map: map
-    });
-  });
-}
+// // Fetch to backend to get listing data
+// async function getListings(zipCode, item) {
+//   // Get values from user search input
+//   let zipCode = document.querySelector('#zipcode').value;
+//   let item = document.querySelector('#item').value;
+//   const response = await fetch(`/api/listings?${zipCode}&${item}`);
+//   const listings = await response.json();
+//   return listings;
+// };
+
+// // Place markers on map for each listing
+// async function displayListingsOnMap(zipCode, item) {
+//   const listings = await getListings(zipCode, item);
+
+//   // Create marker for each listing
+//   listings.forEach(listing => {
+//     const marker = new google.maps.Marker({
+//       position: { lat: listing.latitude, lng: listing.longitude },
+//       map: map
+//     });
+//   });
+// }
 
