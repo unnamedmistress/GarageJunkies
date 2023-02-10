@@ -15,6 +15,7 @@ router.get ('/', async (req,res) =>{
 
 })
 
+
 router.post('/', withAuth, async (req, res) => {
   try {
     const newProject = await Project.create({
@@ -46,6 +47,30 @@ router.delete('/:id', withAuth, async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
+});
+
+
+// GET projects by address
+router.get('/:address', async (req, res) => {
+  try {
+    // find projects (listings) by `address` value
+    const projects = await Project.findAll({
+      where: {
+        address: req.params.address,
+      }
+    });
+    // include its associated User
+  //   include: [{ model: Product }],
+  // });
+
+  if (!projects) {
+    res.status(404).json({ message: 'No listings found in that zipcode!' });
+    return;
+  }
+  res.status(200).json(projects);
+} catch (err) {
+  res.status(500).json(err);
+}
 });
 
 module.exports = router;
