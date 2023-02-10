@@ -13,8 +13,9 @@
   <div class="flex-column justify-space-around">
     <header class="display-flex justify-space-between align-center p-2">
       <h1>
-        <span role="img" aria-label="money">💸</span>
+        <span role="img" aria-label="money"> 🏘 </span>
         <a href="/">GarageJunkies</a>
+        <span role="img" aria-label="money"> 🔧 </span>
       </h1>
    <nav>
   <!-- Conditionally render login or logout links -->
@@ -31,16 +32,6 @@
     <main class="container container-fluid mt-5">
       <!-- Render the sub layout -->
       {{{ body }}}
-
-      <div id="map" style="width: 100%; height: 500px;"></div>
-      {{{ map }}}
-
-      <!-- Add photo upload form -->
-<form action="/upload" method="post" enctype="multipart/form-data">
-  <input type="file" name="photo">
-  <input type="submit" value="Upload">
-</form>
-
     </main>
     <footer>
       
