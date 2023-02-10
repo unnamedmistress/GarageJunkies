@@ -3,13 +3,13 @@ const router = express.Router();
 const { User } = require('../models');
 
 // This route is used to display the user account page
-router.get('/useraccount', (req, res) => {
+router.get('/', (req, res) => {
   // Use the res object to render the useraccount view
   res.render('useraccount');
 });
 
 // This route is used to handle update requests from the user account page
-router.put('/useraccount', async (req, res) => {
+router.put('/', async (req, res) => {
   try {
     // Use the request body to update the user's account information in the database
     const user = await User.update(req.body, {
@@ -26,7 +26,7 @@ router.put('/useraccount', async (req, res) => {
 });
 
 // This route is used to handle delete requests from the user account page
-router.delete('/useraccount', async (req, res) => {
+router.delete('/', async (req, res) => {
   try {
     // Use the request body to delete the user's account information from the database
     const user = await User.destroy({
