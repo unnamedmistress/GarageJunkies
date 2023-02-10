@@ -20,7 +20,9 @@
   <div id="map" style="width: 70%; height: 500px;"></div>
       {{{ map }}}
 </div>
-
+  <h2> Listings </h2>
+  <br>
+  <br>
 {{#each projects as |project| }}
 <div class="row mb-4 project">
   <div class="col-md-5">
@@ -30,13 +32,11 @@
       <a href="/project/{{project.id}}">{{project.name}}</a>
     </h2>
     <form action="/profile" method="post" enctype="multipart/form-data">
-  <input type="file" name="avatar" />
 </form>
     <p>
       <span for="img" aria-label="money">💲</span>
       <!-- Pass needed_funding value to the helper function -->
       <span class="dollar-amount">{{format_amount project.needed_funding}}</span>
-      needed!
     </p>
     <p>Created by {{project.user.name}} on {{project.date_created}}</p>
     <!-- Add photo upload form -->
