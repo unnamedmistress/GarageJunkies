@@ -31,6 +31,8 @@
     <main class="container container-fluid mt-5">
       <!-- Render the sub layout -->
       {{{ body }}}
+      <div id="map" style="width: 100%; height: 500px;"></div>
+      {{{ map }}}
     </main>
     <footer>
       
@@ -41,6 +43,12 @@
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
+  <script src="/js/map.js"></script>
+ <!-- Google Maps JavaScript API -->
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7KptZv_AlWMLmOh6A_AjA_tuc5vJTZ64&callback=initMap&v=weekly"
+    async defer>
+</script>
 </body>
 
 </html>
