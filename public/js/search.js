@@ -1,15 +1,14 @@
-// Global Variables
-let geoApi = 'AIzaSyC7KptZv_AlWMLmOh6A_AjA_tuc5vJTZ64';
 const search = document.querySelector('form');
-
-// let item = document.querySelector('#item-search').value;
 
 search.addEventListener('submit', async (e) => {
   e.preventDefault();
-// Get values from user input
-let zip = document.querySelector('#zipcode').value;
-   
+
+  // Get values from user input
+  let zip = document.querySelector('#zipcode').value;
+  // let item = document.querySelector('#item-search').value;
+
   try {
+    // Fetch to backend to get listing data
     const res = await fetch(`/api/search/${zip}?zipCode=${zip}`);
     const listings = await res.json();
       return(listings);
@@ -18,14 +17,6 @@ let zip = document.querySelector('#zipcode').value;
   }
 });
 
-
-
-// // Fetch to backend to get listing data
-// async function getListings(zipCode) {
-//   const response = await fetch(`/api/search/${zip}`);
-//   const listings = await response.json();
-//   return listings;
-// };
 
 
 // // Place markers on map for each listing

@@ -2,8 +2,12 @@ const router = require('express').Router();
 const { Project, User } = require('../../models');
 // Import sequelize Operator object
 const { Op } = require('sequelize');
+// Import node-fetch to make back end fetch to google geocode
+const fetch = require('node-fetch');
+// Google Geocode API key
+const geoApi = 'AIzaSyC7KptZv_AlWMLmOh6A_AjA_tuc5vJTZ64';
 
-// GET listings by address
+// GET listings by zip code in address field
 router.get('/:address', async (req, res) => {
   try {
     // find projects (listings) by `address` value
@@ -22,7 +26,26 @@ router.get('/:address', async (req, res) => {
     res.status(404).json({ message: 'No listings found in that zipcode!' });
     return;
   }
-  res.status(200).json(projects);
+
+  //  loop through each project, make API call for each address, and update latitude and longitude
+  const updatedProjects = await Promise.all(
+    projects.map(async (project) => {
+      const res = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(project.address)}&key=${geoApi}`);
+      const data = await res.json();
+      console.log('data:', data);
+      if (data.results) {
+        let lat = data.results[0].geometry.location.lat;
+        let lng = data.results[0].geometry.location.lng;
+        let location = { lat: lat, lng: lng };
+        console.log(location);
+      
+      }
+      console.log('project', project);
+      return project;
+    })
+  );
+console.log('updated project:', updatedProjects)
+  res.status(200).json(updatedProjects);
 } catch (err) {
   res.status(500).json(err);
 }
