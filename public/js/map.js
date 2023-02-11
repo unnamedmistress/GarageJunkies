@@ -1,7 +1,3 @@
-// Global Variables
-let geoApi = 'AIzaSyC7KptZv_AlWMLmOh6A_AjA_tuc5vJTZ64';
-const button = document.getElementById("search");
-
 // Initialize GoogleMaps
 function initMap() {
   let map = new google.maps.Map(document.getElementById('map'), {

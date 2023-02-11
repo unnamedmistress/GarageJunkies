@@ -1,12 +1,13 @@
 const router = require('express').Router();
 const { Project, User } = require('../../models');
+// Import sequelize Operator object
 const { Op } = require('sequelize');
 
 // GET listings by address
 router.get('/:address', async (req, res) => {
   try {
     // find projects (listings) by `address` value
-    const { address } = req.params;
+    const { zip } = req.params;
     const { zipCode } = req.query;
     const projects = await Project.findAll({
       where: {
