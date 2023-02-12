@@ -12,15 +12,39 @@ router.get('/:address', async (req, res) => {
   try {
     // find projects (listings) by `address` value
     const { zip } = req.params;
-    const { zipCode } = req.query;
+    const { zipCode, item } = req.query;
+    const where = {};
+
+    // Use a conditional statement to check if both zipCode and item query parameters are present
+    if (zipCode && item) {
+      where.address = {
+        [Op.like]: `%${zipCode}%`
+      };
+      where.item_name = {
+        [Op.like]: `%${item}%`
+      };
+    } else if (zipCode) {
+      where.address = {
+        [Op.like]: `%${zipCode}%`
+      };
+    } else if (item) {
+      where.item_name = {
+        [Op.like]: `%${item}%`
+      };
+    }
+
     const projects = await Project.findAll({
-      where: {
-        address: {
-          // Operator and wildcard to find listings that contain zipcode in address field
-          [Op.like]: `%${zipCode}%`
-        }
-      }
+      where
     });
+
+    // const projects = await Project.findAll({
+    //   where: {
+    //     address: {
+    //       // Operator and wildcard to find listings that contain zipcode in address field
+    //       [Op.like]: `%${zipCode}%`
+    //     }
+    //   }
+    // });
 
   if (!projects) {
     res.status(404).json({ message: 'No listings found in that zipcode!' });

@@ -5,11 +5,15 @@ search.addEventListener('submit', async (e) => {
 
   // Get values from user input
   let zip = document.querySelector('#zipcode').value;
-  // let item = document.querySelector('#item-search').value;
+  let item = document.querySelector('#item-search').value;
 
   try {
     // Fetch to backend to get listing data
-    const res = await fetch(`/api/search/${zip}?zipCode=${zip}`);
+    let url = `/api/search/${zip}?zipCode=${zip}`;
+      if (item) {
+        url += `&item=${item}`;
+      }
+    const res = await fetch(url);
     const listings = await res.json();
     // Init the map
     let map = new google.maps.Map(document.getElementById('map'), {
