@@ -27,7 +27,7 @@ router.get('/:address', async (req, res) => {
     return;
   }
 
-  //  loop through each project, make API call for each address, and update latitude and longitude
+  //  loop through each project, make API call for each address, and convert into latitude and longitude
   const updatedProjects = await Promise.all(
     projects.map(async (project) => {
       const res = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(project.address)}&key=${geoApi}`);
@@ -37,10 +37,16 @@ router.get('/:address', async (req, res) => {
         let lat = data.results[0].geometry.location.lat;
         let lng = data.results[0].geometry.location.lng;
         let location = { lat: lat, lng: lng };
+      // make sure it is converting correctly
         console.log(location);
       
+        // Return new object with updated lat and lon
+        return {
+          ...project.toJSON(),
+          latitude: lat,
+          longitude: lng
+        };
       }
-      console.log('project', project);
       return project;
     })
   );
