@@ -1,14 +1,27 @@
 const newFormHandler = async (event) => {
     event.preventDefault();
   
-    const name = document.querySelector('#project-name').value.trim();
-    const needed_funding = document.querySelector('#project-funding').value.trim();
+    const item_name = document.querySelector('#project-name').value.trim();
     const description = document.querySelector('#project-desc').value.trim();
-  
-    if (name && needed_funding && description) {
+    const price = document.querySelector('#project-price').value.trim();
+    const streetAddress = document.getElementById('project-address').value.trim();
+    const city = document.getElementById('project-city').value.trim();
+    const state = document.getElementById('project-state').value.trim();
+    const zip = document.getElementById('project-zipcode').value.trim();
+
+    const address = `${streetAddress} ${city}, ${state} ${zip}`
+
+
+    if (item_name && description &&price && address) {
       const response = await fetch(`/api/projects`, {
         method: 'POST',
-        body: JSON.stringify({ name, needed_funding, description }),
+        body: JSON.stringify({ 
+          item_name, 
+          description,
+          price,
+          address,
+
+         }),
         headers: {
           'Content-Type': 'application/json',
         },
@@ -16,6 +29,7 @@ const newFormHandler = async (event) => {
   
       if (response.ok) {
         document.location.replace('/profile');
+        console.log('IT WORKED!')
       } else {
         alert('Failed to create project');
       }
