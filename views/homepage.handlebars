@@ -1,8 +1,29 @@
+<br> <br> <br>
+<div id="intro"> 
+  <h2>
+Hello and welcome to our page on stufff amnd how stuff are very 
+  important Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, fugiat. Distinctio
+  Hello and welcome to our page on stufff amnd how stuff are very 
+  important Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, fugiat. Distinctio 
+<br> <img src="Images/pnghut_garage-sale-vector-graphics-sales-clip-art-illustration-yard-furniture.png" > <br> 
+Hello and welcome to our page on stufff amnd how stuff are very 
+  important Lorem ipsum dolor sit <a href="#map" id="start">Click Here</a> to get started
+</h2> 
+{{#if logged_in}}
+ <button class="btn btn-primary" onclick="document.location.href='/profile';">
+      Click Here
+    </button>
+</div>
+
+<br> <br>
+<br> <br>
+
+
+{{/if}}
 <div id="top-row" class="row">  
 <!-- Loop over each object in the projects array -->
 <div class="col-md-2">
     <h2>Search</h2>
-
     <form class="form search-form">
       <div class="form-group">
         <label for="zipcode">Zipcode:</label>
@@ -20,6 +41,8 @@
   <div id="map" style="width: 70%; height: 500px;"></div>
       {{{ map }}}
 </div>
+
+  
   <h2> Listings </h2>
   <br>
   <br>
@@ -50,6 +73,7 @@
       {{project.description}}
     </p>
   </div>
-</div>
+  </div>
+
 {{/each}}
 
