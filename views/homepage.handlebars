@@ -28,12 +28,12 @@
   <div class="col-md-5">
     <h2>
       <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-      {{!-- {{{get_emoji}}} --}}
+      {{{get_emoji}}}
       <a href="/project/{{project.id}}">{{project.name}}</a>
     </h2>
     <form action="/profile" method="post" enctype="multipart/form-data">
 </form>
-  <p>{{project.item_name}} </p>
+  <a href="/project/{{project.id}}">{{project.item_name}}</a>
     <p>
       <span for="img" aria-label="money">💲</span>
       <!-- Pass needed_funding value to the helper function -->
