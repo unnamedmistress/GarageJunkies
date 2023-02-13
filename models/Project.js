@@ -37,6 +37,10 @@ Project.init(
       type: DataTypes.DECIMAL(10,8),
       allowNull: true,
     },
+    url: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {

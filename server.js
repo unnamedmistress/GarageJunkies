@@ -8,7 +8,7 @@ const bcrypt = require('bcrypt');
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const multer = require('multer');
-
+const upload = multer({ dest: 'uploads/' });
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -47,14 +47,6 @@ const storage = multer.diskStorage({
     cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
   }
 });
-
-const upload = multer({
-  storage: storage,
-  limits: { fileSize: 1000000 },
-  fileFilter: function (req, file, cb) {
-    checkFileType(file, cb);
-  }
-}).single('photo');
 
 function checkFileType(file, cb) {
   // Allowed ext
