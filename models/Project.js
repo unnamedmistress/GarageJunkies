@@ -25,6 +25,18 @@ Project.init(
         isDecimal: true
       }
     },
+    address: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    latitude: {
+      type: DataTypes.DECIMAL(9,7),
+      allowNull: true,
+    },
+    longitude: {
+      type: DataTypes.DECIMAL(10,8),
+      allowNull: true,
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {

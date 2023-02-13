@@ -15,6 +15,7 @@ router.get ('/', async (req,res) =>{
 
 })
 
+
 router.post('/', withAuth, async (req, res) => {
   try {
     const newProject = await Project.create({
@@ -47,5 +48,6 @@ router.delete('/:id', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 
 module.exports = router;
