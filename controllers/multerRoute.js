@@ -2,6 +2,16 @@ const express = require('express');
 const router = express.Router();
 const multer = require('multer');
 
+const app = express();
+
+
+app.post('/photos', upload.single('photos'), (req, res) => {  
+  const photo = req.file;
+  const photobody = req.body;
+  console.log(photobody);
+  console.log(photo);
+  res.send('Photo uploaded successfully');
+});
 // Set up Multer to handle photo uploads
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
