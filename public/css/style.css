@@ -27,3 +27,21 @@ header, .project:not(:last-child) {
   margin-bottom: 150px;
   margin-top: 50px;
 }
+body{
+  background-color: white;
+}
+header{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: lightyellow;
+  font-size: 15px;
+
+}
+a:link{
+  text-decoration: none;
+}
+a{
+  color: lightseagreen
+}
+h1{
+  font-size: 30px;
+}
