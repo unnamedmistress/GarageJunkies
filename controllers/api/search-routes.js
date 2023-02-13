@@ -15,7 +15,7 @@ router.get('/:address', async (req, res) => {
     const { zipCode, item } = req.query;
     const where = {};
 
-    // Use a conditional statement to check if both zipCode and item query parameters are present
+    // Check if both zipCode and item query parameters are present
     if (zipCode && item) {
       where.address = {
         [Op.like]: `%${zipCode}%`
