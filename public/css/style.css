@@ -27,14 +27,15 @@ header, .project:not(:last-child) {
   margin-bottom: 150px;
   margin-top: 50px;
 }
-body{
-  background-color: white;
+#top-row{
+  background-color: gainsboro;
+  border-radius: 11px;
 }
+
 header{
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   background-color: lightyellow;
   font-size: 15px;
-
 }
 a:link{
   text-decoration: none;
@@ -44,4 +45,19 @@ a{
 }
 h1{
   font-size: 30px;
+}
+#intro {
+  border-right: 1px solid #ccc;
+ font-family: 'Times New Roman', Times, serif;
+
+}
+h2{
+  font-size: 35px;
+}
+#start{
+  color: darkslategray;
+  font-size: 33px;
+}
+body{
+  background-color: snow;
 }
