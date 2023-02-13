@@ -1,6 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-
 class Project extends Model {}
 //we will use this model for listings
 Project.init(
@@ -37,7 +36,7 @@ Project.init(
       type: DataTypes.DECIMAL(10,8),
       allowNull: true,
     },
-    url: {
+    photo_url: {
       type: DataTypes.STRING,
       allowNull: true,
     },
@@ -57,5 +56,4 @@ Project.init(
     modelName: 'project',
   }
 );
-
 module.exports = Project;
