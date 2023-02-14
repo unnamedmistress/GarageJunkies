@@ -6,6 +6,7 @@ search.addEventListener('submit', async (e) => {
   // Get values from user input
   let zip = document.querySelector('#zipcode').value;
   let item = document.querySelector('#item-search').value;
+  const user = await fetch('/api/users')
 
   try {
     // Fetch to backend to get listing data
@@ -37,7 +38,7 @@ search.addEventListener('submit', async (e) => {
       // Create the info window for map marker
       let infoWindow = new google.maps.InfoWindow({
         content: `
-      <div>${listing.address}</div>
+      <div>${listing.street_address} ${listing.city} ${listing.state}, ${listing.zip}</div>
       <div>${listing.item_name}</div>
   `
       });
