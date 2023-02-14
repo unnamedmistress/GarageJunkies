@@ -51,8 +51,8 @@ router.get('/:zip', async (req, res) => {
   //  loop through each project, make API call for each address, and convert into latitude and longitude
   const updatedProjects = await Promise.all(
     projects.map(async (project) => {
-
-      const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(project.address)}&key=${geoApi}`);
+      const projectAddress = `${project.street_address} ${project.city} ${project.state} ${project.zip}`;
+      const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(projectAddress)}&key=${geoApi}`);
       const data = await response.json();
       console.log('data:', data);
       if (data.results) {
@@ -80,52 +80,5 @@ console.log('updated project:', updatedProjects)
   res.status(500).json(err);
 }
 });
-
-
-// // GET listings by zip code in address field
-// router.get('/:address', async (req, res) => {
-//   try {
-//     // find projects (listings) by `address` value
-//     const { zip } = req.params;
-//     const { zipCode, item } = req.query;
-//     const where = {};
-
-//     // Check if both zipCode and item query parameters are present
-//     if (zipCode && item) {
-//       where.address = {
-//         [Op.like]: `%${zipCode}%`
-//       };
-//       where.item_name = {
-//         [Op.like]: `%${item}%`
-//       };
-//     } else if (zipCode) {
-//       where.address = {
-//         [Op.like]: `%${zipCode}%`
-//       };
-//     } else if (item) {
-//       where.item_name = {
-//         [Op.like]: `%${item}%`
-//       };
-//     }
-
-//     const projectData = await Project.findAll({
-//       where,
-//       include: [
-//         {
-//           model: User,
-//           attributes: ['name'],
-//         },
-//       ],
-//     });
-//     console.log("projectData:", projectData);
-//  // Serialize data so the template can read it
-//  const project = projectDatat.get({ plain: true });
-
-//  res.render('search', project);
-//   } catch (err) {
-//       res.status(500).json(err);
-//   }
-// });
-
 
 module.exports = router;

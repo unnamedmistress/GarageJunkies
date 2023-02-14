@@ -4,20 +4,29 @@
     "description": "This stained coffee cup is perfect for your collection.",
     "price": 15.00,
     "photo": "https://via.placeholder.com/150",
-    "street_address": "2635 Graduate Ct Orlando, FL 32826"
+    "street_address": "14515 Kristenright Ln",
+    "city": "Orlando",
+    "state": "FL",
+    "zip": "32826"
   },
   {
     "item_name": "Shark Watch",
     "description": "This trendy shark watch is great for keeping time while you surf.",
     "price": 45.00,
     "photo": "https://via.placeholder.com/150",
-    "street_address": "14515 Kristenright Ln Orlando, FL 32826"
+    "street_address": "14515 Kristenright Ln",
+    "city": "Orlando",
+    "state": "FL",
+    "zip": "32826"
   },
   {
     "item_name": "pen",
     "description": "Best ball point pen around.",
     "price": 2.00,
     "photo": "https://via.placeholder.com/150",
-    "street_address": "4016 Shawn Cir Orlando, FL 32836"
+    "street_address": "4016 Shawn Cir",
+    "city": "Orlando",
+    "state": "FL",
+    "zip": "32836"
   }
 ]
