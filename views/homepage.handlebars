@@ -1,25 +1,36 @@
 <br> <br> <br>
+<div class="">
 <div id="intro"> 
   <h2>
-Hello and welcome to our page on stufff amnd how stuff are very 
-  important Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, fugiat. Distinctio
-  Hello and welcome to our page on stufff amnd how stuff are very 
-  important Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim, fugiat. Distinctio 
-<br> <img src="Images/pnghut_garage-sale-vector-graphics-sales-clip-art-illustration-yard-furniture.png" > <br> 
-Hello and welcome to our page on stufff amnd how stuff are very 
-  important Lorem ipsum dolor sit <a href="#map" id="start">Click Here</a> to get started
+Hello and welcome to our Website this is a app that's based on making life alot easier on searching for garage sales
+    You can make listings and also <br> <a href="#map" id="start">search</a> for items 
+  <br> 
 </h2> 
+<br> <img src="Images/pnghut_garage-sale-vector-graphics-sales-clip-art-illustration-yard-furniture.png" > <br>
+<div class="display-flex justify-center align-center">
+<h3>Enter your Zipcode, and the item you're looking for then we will find <br> all of the nearby listings for that item. <br></h3>
+<br>
+</div>
+<div class="display-flex justify-center align-center">
+<button id="profile-btn" class="btn btn-primary" onclick="document.location.href='/login';">
+     Get Started
+  </button>
+</div>
+
 {{#if logged_in}}
- <button class="btn btn-primary" onclick="document.location.href='/profile';">
-      Click Here
-    </button>
+<br> <br>
+<div class="display-flex justify-center align-center">
+ <button id="profile-btn" class="btn btn-primary" onclick="document.location.href='/profile';">
+     Create Listing
+  </button>
+  </div>
+    {{/if}}
+</div>
 </div>
 
 <br> <br>
 <br> <br>
 
-
-{{/if}}
 <div id="top-row" class="row">  
 <!-- Loop over each object in the projects array -->
 <div class="col-md-2">
