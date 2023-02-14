@@ -7,24 +7,25 @@
   <title>GarageJunkies</title>
   <link rel="stylesheet" href="/css/jass.css">
   <link rel="stylesheet" href="/css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <div class="flex-column justify-space-around">
     <header class="display-flex justify-space-between align-center p-2">
       <h1>
-        <span role="img" aria-label="money"> 🏡 </span>
+        <span role="img" aria-label="money">  </span>
         <a href="/">Garagejunkies</a>
         
       </h1>
    <nav>
   <!-- Conditionally render login or logout links -->
   {{#if logged_in}}
-  <a href="/profile">profile</a> |
-  <a href="/useraccount">user account</a> |
-  <button class="no-button" id="logout">logout</button>
+  <a href="/profile"><strong>profile</strong></a> |
+  <a href="/useraccount"><strong>user account</strong></a> |
+  <button class="no-button" id="logout"><strong> logout</strong></button>
   {{else}}
-  <a href="/login">login</a>
+  <a href="/login"><strong>login</strong></a>
   {{/if}}
 </nav>
     </header>

@@ -31,7 +31,7 @@ search.addEventListener('submit', async (e) => {
       const marker = new google.maps.Marker({
         position: { lat: listing.latitude, lng: listing.longitude },
         map,
-        title: listing.address,
+        title: listing.street_address,
       });
 
       // Create the info window for map marker

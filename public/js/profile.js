@@ -8,6 +8,17 @@ const newFormHandler = async (event) => {
     const city = document.getElementById('project-city').value.trim();
     const state = document.getElementById('project-state').value.trim();
     const zip = document.getElementById('project-zipcode').value.trim();
+    const photo = document.getElementById('project-upload');
+    const data = new FormData();
+    data.append('photo', photo.files[0]);
+    data.append('description', description);
+    data.append('price', price);
+    data.append('streetAddress', streetAddress);
+    data.append('city', city);
+    data.append('state', state);
+    data.append('zip', zip);
+    data.append('item_name', item_name);
+
 
     const address = `${streetAddress} ${city}, ${state} ${zip}`
 
@@ -15,16 +26,7 @@ const newFormHandler = async (event) => {
     if (item_name && description &&price && address) {
       const response = await fetch(`/api/projects`, {
         method: 'POST',
-        body: JSON.stringify({ 
-          item_name, 
-          description,
-          price,
-          address,
-
-         }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        body: data
       });
   
       if (response.ok) {
