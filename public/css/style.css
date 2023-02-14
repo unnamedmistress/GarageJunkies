@@ -61,3 +61,33 @@ h2{
 body{
   background-color: snow;
 }
+
+/* Style the form icons
+.icon {
+  padding: 10px;
+  background: dodgerblue;
+  color: white;
+  min-width: 50px;
+  text-align: center;
+} */
+
+body.login-signup {
+  background: linear-gradient(to right,#4fb3ff,#ff9869);
+}
+
+h2.login-head {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn-login {
+  font-weight: 700;
+  background: linear-gradient(to bottom right, #00dbde, #fc00ff);
+  margin-top: 20px;
+  padding: 10px 20px;
+  width: 200px;
+}
+
+.btn-login:hover {
+  background: linear-gradient(to bottom right, #fc00ff, #00dbde);
+}
