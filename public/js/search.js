@@ -26,13 +26,13 @@ search.addEventListener('submit', async (e) => {
       const marker = new google.maps.Marker({
         position: { lat: listing.latitude, lng: listing.longitude },
         map,
-        title: listing.address,
+        title: listing.street_address,
       });
       
   // Create the info window for map marker
   let infoWindow = new google.maps.InfoWindow({
   content: `
-      <div>${listing.address}</div>
+      <div>${listing.street_address} ${listing.city} ${listing.state}, ${listing.zip}</div>
       <div>${listing.item_name}</div>
   `
 });

@@ -54,7 +54,8 @@ router.get('/:zip', async (req, res) => {
   //  loop through each project, make API call for each address, and convert into latitude and longitude
   const updatedProjects = await Promise.all(
     projects.map(async (project) => {
-      const projectAddress = project.address+project.city+project.state+project.zip;
+      const projectAddress = `${project.street_address} ${project.city} ${project.state} ${project.zip}`;
+      console.log(projectAddress);
       const res = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(projectAddress)}&key=${geoApi}`);
       const data = await res.json();
       console.log('data:', data);
