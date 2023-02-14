@@ -11,19 +11,19 @@ Hello and welcome to our Website this is a app that's based on making life alot 
 <h3>Enter your Zipcode, and the item you're looking for then we will find <br> all of the nearby listings for that item. <br></h3>
 <br>
 </div>
-<div class="display-flex justify-center align-center">
-<button id="profile-btn" class="btn btn-primary" onclick="document.location.href='/login';">
-     Get Started
-  </button>
-</div>
-
+<br> <br> <br>
 {{#if logged_in}}
-<br> <br>
 <div class="display-flex justify-center align-center">
  <button id="profile-btn" class="btn btn-primary" onclick="document.location.href='/profile';">
      Create Listing
   </button>
   </div>
+  {{else}}
+<div class="display-flex justify-center align-center">
+<button id="profile-btn" class="btn btn-primary" onclick="document.location.href='/login';">
+     Get Started
+</button>
+</div>
     {{/if}}
 </div>
 </div>
