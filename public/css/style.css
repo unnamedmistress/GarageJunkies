@@ -33,7 +33,7 @@ header, .project:not(:last-child) {
 }
 
 header{
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Inconsolata', monospace;
   background-color: lightyellow;
   font-size: 15px;
 }
@@ -48,15 +48,18 @@ h1{
 }
 #intro {
   border-right: 1px solid #ccc;
- font-family: 'Times New Roman', Times, serif;
-
+  font-family: 'Ubuntu', sans-serif;
+  margin-bottom: 100px;
 }
 h2{
   font-size: 35px;
 }
 #start{
-  color: darkslategray;
+  color: rgba(0, 0, 0, 0.319);
   font-size: 33px;
+}
+#start:hover{
+  color: #056605;
 }
 body{
   background-color: snow;
