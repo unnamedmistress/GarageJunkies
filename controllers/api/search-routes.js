@@ -8,23 +8,23 @@ const fetch = require('node-fetch');
 const geoApi = 'AIzaSyC7KptZv_AlWMLmOh6A_AjA_tuc5vJTZ64';
 
 // GET listings by zip code in address field
-router.get('/:address', async (req, res) => {
+router.get('/:zip', async (req, res) => {
   try {
-    // find projects (listings) by `address` value
-    const { zip } = req.params;
-    const { zipCode, item } = req.query;
+    // find projects (listings) by `zip` value
+    const { zip: zipCode } = req.params;
+    const { item } = req.query;
     const where = {};
 
     // Check if both zipCode and item query parameters are present
     if (zipCode && item) {
-      where.address = {
+      where.zip = {
         [Op.like]: `%${zipCode}%`
       };
       where.item_name = {
         [Op.like]: `%${item}%`
       };
     } else if (zipCode) {
-      where.address = {
+      where.zip = {
         [Op.like]: `%${zipCode}%`
       };
     } else if (item) {
@@ -54,7 +54,9 @@ router.get('/:address', async (req, res) => {
   //  loop through each project, make API call for each address, and convert into latitude and longitude
   const updatedProjects = await Promise.all(
     projects.map(async (project) => {
-      const res = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(project.address)}&key=${geoApi}`);
+      const projectAddress = `${project.street_address} ${project.city} ${project.state} ${project.zip}`;
+      console.log(projectAddress);
+      const res = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(projectAddress)}&key=${geoApi}`);
       const data = await res.json();
       console.log('data:', data);
       if (data.results) {

@@ -1,6 +1,18 @@
 const router = require('express').Router();
 const { Project, User } = require('../../models');
 const withAuth = require('../../utils/auth');
+const multer = require('multer');
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './public/uploads/')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname)
+  }
+});
+const upload = multer({ storage: storage });
+
 
 router.get ('/', async (req,res) =>{
     try {
@@ -16,11 +28,19 @@ router.get ('/', async (req,res) =>{
 })
 
 
-router.post('/', withAuth, async (req, res) => {
+router.post('/', withAuth, upload.single('photo'),async (req, res) => {
+  console.log(req.body);
   try {
     const newProject = await Project.create({
-      ...req.body,
-      user_id: req.session.user_id,
+    description: req.body.description,
+    street_address: req.body.streetAddress,
+    city: req.body.city,
+    state: req.body.state,
+    zip: req.body.zip,
+    item_name: req.body.item_name,
+    price: req.body.price,
+    user_id: req.session.user_id,
+    photo: `./uploads/${req.file.originalname}`
     });
 
     res.status(200).json(newProject);
