@@ -24,8 +24,20 @@ Project.init(
         isDecimal: true
       }
     },
-    address: {
+    street_address: {
       type: DataTypes.STRING,
+      allowNull: false,
+    },
+    city: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    state: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    zip: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     latitude: {
@@ -36,9 +48,8 @@ Project.init(
       type: DataTypes.DECIMAL(10,8),
       allowNull: true,
     },
-    photo_url: {
+    photo: {
       type: DataTypes.STRING,
-      allowNull: true,
     },
     user_id: {
       type: DataTypes.INTEGER,
