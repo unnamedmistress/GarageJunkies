@@ -61,24 +61,28 @@ function addListings(listings) {
   
     const divEl = document.createElement("div")
       divEl.classList.add("listing-item");
-    // const head = document.createElement("h2")
-    const link = document.createElement("a")
-      link.textContent = `${listing.item_name}`
-      link.href = `/project/${listing.id}`
-    const price = document.createElement("p");
-      price.textContent = `💲${listing.price}`
-      price.classList.add("listing-price");
-    const user = document.createElement("p")
-      user.textContent =  "Created by Ash"
-      // `Created by ${listing.user.name}`;
-    const description = document.createElement("p");
-      description.textContent = `${listing.description}`;
-    const photo = document.createElement("img");
-      photo.src = `${listing.photo}`;
-      photo.classList.add("list-photo");
-    divEl.append(link, price, user, description, photo)
+    divEl.innerHTML = `
+    <div class="row mb-3 project">
+  <div class="col-md-4">
+    <form action="/profile" method="post" enctype="multipart/form-data">
+</form>
+  <a href="/project/${listing.id}">${listing.item_name}</a>
+    <p>
+      <span for="img" aria-label="money">💲</span>
+      <!-- Pass needed_funding value to the helper function -->
+      <span class="dollar-amount">${listing.price}</span>
+    </p>
+    <p>Created by Ashlynn</p>
+  </div>
+  <div class="col-md-7 pt-2">
+     <p>Address of listing: ${listing.street_address} ${listing.city} ${listing.state}, ${listing.zip}</p>
+    <p>
+      ${listing.description}
+    </p>
+ <img src="../${listing.photo}" height = "100px" width = "150px" alt = "project photo">
+  </div>
+  </div>
+    `;
     projectsDiv.appendChild(divEl);
-    divEl.classList.add("listing-item");
-
   });
 }
