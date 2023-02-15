@@ -1,13 +1,16 @@
 <div class="text-center">
-  <h2>{{name}}</h2>
+  <h2>{{item_name}}</h2>
   <img src="../{{photo}}" height = "150px" width = "200px" alt = "project photo">
-  <p>{{description}}</p>
-  <p>Created by {{user.name}} on {{date_created}}</p>
-  <p> Located at {{address}} {{city}}, {{state}} {{zip}}</p>
-    <span for="img" aria-label="money"></span>
-    <span class="dollar-amount">${{price}}</span>
-  </p>
+
+  <p>Description: {{description}}</p>
+  <p>Created by: {{user.name}}</p>
+  <p>Address of listing: {{street_address}} {{city}} {{state}}, {{zip}}</p>
   <p>
-    <button class="btn btn-primary">Buy Me!</button>
+    <span for="img" aria-label="money">Price: 💲</span>
+    <span class="dollar-amount">{{format_amount price}}</span>
   </p>
+  {{!-- <p>
+    <button class="btn btn-primary">Fund this Project!</button>
+  </p> --}}
 </div>
+
