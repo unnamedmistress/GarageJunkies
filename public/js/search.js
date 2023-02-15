@@ -60,18 +60,25 @@ function addListings(listings) {
   listings.forEach((listing) => {
   
     const divEl = document.createElement("div")
-    const head = document.createElement("h2")
+      divEl.classList.add("listing-item");
+    // const head = document.createElement("h2")
     const link = document.createElement("a")
       link.textContent = `${listing.item_name}`
       link.href = `/project/${listing.id}`
+    const price = document.createElement("p");
+      price.textContent = `💲${listing.price}`
+      price.classList.add("listing-price");
     const user = document.createElement("p")
-      user.textContent =  "Created by ash"
+      user.textContent =  "Created by Ash"
       // `Created by ${listing.user.name}`;
     const description = document.createElement("p");
       description.textContent = `${listing.description}`;
-      // description.textContent = listing.description;
-      divEl.append(link, user, description)
+    const photo = document.createElement("img");
+      photo.src = `${listing.photo}`;
+      photo.classList.add("list-photo");
+    divEl.append(link, price, user, description, photo)
     projectsDiv.appendChild(divEl);
-//     `
+    divEl.classList.add("listing-item");
+
   });
 }

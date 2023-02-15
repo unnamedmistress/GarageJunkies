@@ -94,3 +94,22 @@ h2.login-head {
 .btn-login:hover {
   background: linear-gradient(to bottom right, #fc00ff, #00dbde);
 }
+
+.listing-item:not(:last-child) {
+  border-bottom: 1px solid #000;
+}
+
+.listing-price {
+  color: green;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.list-photo {
+  height: 100px;
+  width: 150px 
+}
+
+.listing-item {
+  margin-bottom: 20px; 
+}
