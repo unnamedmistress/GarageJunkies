@@ -1,5 +1,7 @@
 <div>
-<h1>Email:{{email}}</h1>
+  <div class="col-md-5 mr-4">
+<h1>Email: {{email}}</h1>
+<br> 
 {{!-- <h1>ID:{{id}}</h1> --}}
 <!-- This form is used to update the user's account information -->
 <form action="/useraccount" method="post">
@@ -14,32 +16,35 @@
     <!-- This input field displays the user's current name and allows them to change it -->
     <input type="text" name="name" value="{{name}}">
   </div>
-  
+ 
   <!-- This div contains the email input field -->
   <div>
     <label for="email">Email:</label>
     <!-- This input field displays the user's current email and allows them to change it -->
     <input type="email" name="email" value="{{email}}">
   </div>
-  
+  <br>
+  <br>
   <!-- This button submits the form and updates the user's account information in the back-end -->
-  <button type="submit">Update</button>
+<br>
+<br>
+ <button id="update-button" class="btn " type="submit">Update</button>
 </form>
-
+<br>
 <!-- This form is used to delete the user's account -->
 <form>
   <!-- This hidden input sends the user's id to the back-end -->
   <input type="hidden" name="id" id="userid" value="{{id}}">
   
   <!-- This button submits the form and deletes the user's account information in the back-end -->
-  <button id="delete-button" type="submit">Delete Account</button>
+  <button id="delete-button" class="btn " type="submit">Delete Account</button>
 </form>
-
+</div>
 
   
 
 <!-- This heading is for the user's sales -->
-<h3>Sales</h3>
+{{!-- <h3>Sales</h3> --}}
 
 <!-- This unordered list displays the user's sales -->
 <ul>
