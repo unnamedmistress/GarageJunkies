@@ -8,8 +8,6 @@ const app = express();
 app.post('/photos', upload.single('photos'), (req, res) => {  
   const photo = req.file;
   const photobody = req.body;
-  console.log(photobody);
-  console.log(photo);
   res.send('Photo uploaded successfully');
 });
 // Set up Multer to handle photo uploads

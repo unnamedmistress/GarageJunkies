@@ -8,15 +8,15 @@
 - We've wanted to make the GarageJunkies to combine both the front-end and back-end to implement the technoligies of back-end APIs and Front-end APIs, SQL, Express.js and Model-View-Controller.
 
 ## Preview   
-Coming soon!
+![homepage](/GarageJunkies/public/photos/Homepage.png)
 
 
 ## LINK  
-Coming soon!
+https://garagesalejunkies.herokuapp.com/
 
 
 ## Installation
-N/A
+NPM Install  - uses Handlebars, mysql2, express, multer
 
 ## Usage
 
