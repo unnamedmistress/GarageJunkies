@@ -8,7 +8,7 @@
 - We've wanted to make the GarageJunkies to combine both the front-end and back-end to implement the technoligies of back-end APIs and Front-end APIs, SQL, Express.js and Model-View-Controller.
 
 ## Preview   
-![homepage](/GarageJunkies/public/photos/Homepage.png)
+![homepage](https://raw.githubusercontent.com/unnamedmistress/GarageJunkies/main/public/photos/Homepage.png)
 
 
 ## LINK  
