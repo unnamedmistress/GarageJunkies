@@ -60,7 +60,8 @@ function addListings(listings) {
   listings.forEach((listing) => {
   
     const divEl = document.createElement("div")
-    const head = document.createElement("h2")
+      divEl.classList.add("listing-item");
+    // const head = document.createElement("h2")
     const link = document.createElement("a")
       link.textContent = `${listing.item_name}`
       link.href = `/project/${listing.id}`

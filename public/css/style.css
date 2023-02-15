@@ -109,3 +109,7 @@ h2.login-head {
   height: 100px;
   width: 150px 
 }
+
+.listing-item {
+  margin-bottom: 20px; 
+}
